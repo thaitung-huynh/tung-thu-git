@@ -86,4 +86,6 @@ object SBaum:
 
     print(list(b))
 alskjdklasjklaskdj
-salkajsdlkas
+salkajsdlk
+
+as
