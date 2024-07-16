@@ -23,17 +23,17 @@ object SBaum:
         else
           if (x < w) then inBaum(x, li)
           else inBaum(x, re)
-          
+
   def headSB(b: SBaum): Int =
     b match
       case Knoten(w, SBLeer(), _) => w
       case Knoten(_,Knoten(w, li, re), _) => headSB(Knoten(li, w, re))
-  
+
   def tailSB(b: SBaum): SBaum =
     b match
       case Knoten(_, SBLeer(), re) => re
       case Knoten(w, li, re) => Knoten(w, tailSB(li), re)
-      
+
   def lastSB(b: SBaum): Int =
     b match
       case Knoten(w, _, SBLeer()) => w
@@ -43,14 +43,14 @@ object SBaum:
     b match
       case Knoten(_, li, SBLeer()) => li
       case Knoten(w, li, re) => Knoten(w, li, initSB(re))
-  
-  
+
+
   def sizeSB(sb: SBaum): Int =
     sb match
       case SBLeer() => 0
       case Knoten(w, l, r) =>
         sizeSB(l)  + 1 + sizeSB(r)
-  
+
   def loesche(x: Int, sb: SBaum): SBaum =
     sb match
       case SBLeer() => SBLeer()
@@ -72,8 +72,8 @@ object SBaum:
         list(li) ::: w :: list(re)
 
   def einL(a: List[Int], b: SBaum): Unit =
-    a.foldRight(b)((x, b) => ein(x, b))
-  
+    a.foldRight(b)((x, b) => ein(x, b)
+
   def main(args: Array[String]): Unit =
 
     var b: SBaum = SBLeer()
